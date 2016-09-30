@@ -15,10 +15,11 @@ Plugin 'vim-latex/vim-latex'
 "Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'gabrielelana/vim-markdown'
-Plugin 'nelstrom/vim-markdown-folding'
+"Plugin 'gabrielelana/vim-markdown'
+"Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'godlygeek/tabular'
-
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax' 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -116,6 +117,9 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "compile
 nnoremap <F5> :!g++ -g % -o %:r<CR> 
+
+"compile md to latex
+nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 
 "run
 nnoremap <F6> :!./%:r<CR>
