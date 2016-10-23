@@ -105,6 +105,9 @@ set undodir=~/.vim/backups//
 set backupdir=~/.vim/backups//
 set directory =~/.vim/backups//
 
+"encryption
+set cm=blowfish2
+
 "spelling
 set spelllang=en_us
 map <F8> :setlocal spell!<CR>
