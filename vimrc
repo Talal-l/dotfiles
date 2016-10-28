@@ -127,9 +127,11 @@ nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "run
 nnoremap <F6> :!./%:r<CR>
 
-" md to pdf
+"md to pdf
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 
+"replace ecp with jk in insert mode 
+inoremap jk <esc>
 
 "vim powerline
 "set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
