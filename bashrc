@@ -115,3 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+# add a script directory 
+export PATH="$HOME/dotfiles/bin:$PATH"
