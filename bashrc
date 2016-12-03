@@ -119,3 +119,10 @@ fi
 
 # add a script directory 
 export PATH="$HOME/dotfiles/bin:$PATH"
+
+
+
+# un shortcuts
+
+alias csa="cd ~/nextcloud/un/fall16/csc225/assignment"
+
