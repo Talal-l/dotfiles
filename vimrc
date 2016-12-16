@@ -79,7 +79,7 @@ set tabstop=4
 set softtabstop=4 
 "tabes are spaces
 set expandtab 
-"indent 4 spaces inted of eight
+"indent 4 spaces intead of eight
 set shiftwidth=4 
 "keep 50 lines of command line history
 set history=500		
