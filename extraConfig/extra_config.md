@@ -1,4 +1,25 @@
+# Linux
 
+## Install vundle 
+mkdir ~/.vim/backups
+
+`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
+## YCM
+
+Install development tools and CMake: 
+    sudo apt-get install build-essential cmake
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clang-completer
+
+Make sure you have Python headers installed: 
+    sudo apt-get install python-dev python3-dev
+
+
+
+
+# mac
 To make solrized work you need to install it for the terminal by `clone https://github.com/tomislav/osx-terminal.app-colors-solarized` then go to terminal preference and import the .terminal file. 
 
 ### Install YCM on mac 
