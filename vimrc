@@ -53,7 +53,7 @@ filetype plugin indent on    " required
 "Put your non-Plugin stuff after this line
 
 "YCM config
-let g:ycm_global_ycm_extra_conf = '~/dotfiles/extraConfig/ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
 
 "To use grip for markdown preview
 let vim_markdown_preview_github=1
