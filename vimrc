@@ -92,6 +92,7 @@ set incsearch
 syntax enable
 set background=light
 colorscheme solarized
+"colorscheme default 
 set autoindent
 
 set backup
@@ -141,7 +142,7 @@ inoremap jk <esc>
 
 "Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-
+set term=xterm-256color
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start

@@ -123,3 +123,5 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 
 # un shortcuts
 alias csn="cd ~/nextcloud/un/fall16/csc225/notes" 
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
