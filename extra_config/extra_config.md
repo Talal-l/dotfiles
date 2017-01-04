@@ -16,7 +16,10 @@ Install development tools and CMake:
 Make sure you have Python headers installed: 
     sudo apt-get install python-dev python3-dev
 
-
+## additional component for  Instant markdown preview 
+     
+    sudo apt install xdg-utils curl nodejs-legacy npm
+    sudo npm -g install instant-markdown-d
 
 
 # mac
@@ -40,3 +43,4 @@ cp  ~/dotfiles/extraConfig/ycm_extra_conf.py to ~/.vim
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
 ```
+
