@@ -90,7 +90,7 @@ set showcmd
 "do incremental searching
 set incsearch		
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 "colorscheme default 
 set autoindent
