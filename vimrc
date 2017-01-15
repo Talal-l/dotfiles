@@ -20,6 +20,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
+Plugin 'jceb/vim-orgmode'
+Plugin 'freitass/todo.txt-vim'
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -119,13 +121,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "set colorcolumn=130
 
 "compile
-nnoremap <F5> :!g++ -g % -o %:r<CR> 
+nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR> 
 
 "compile md to latex
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 
 "run
-nnoremap <F6> :!./%:r<CR>
+nnoremap <F6> :!./bin/%:r<CR>
 
 "md to pdf
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
