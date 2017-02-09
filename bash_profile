@@ -117,11 +117,13 @@ if ! shopt -oq posix; then
 fi
 
 
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
 # add a script directory 
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 
-# un shortcuts
-alias csn="cd ~/nextcloud/un/fall16/csc225/notes" 
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# enable git bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+  fi

@@ -20,6 +20,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'godlygeek/tabular'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
+Plugin 'jceb/vim-orgmode'
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -69,8 +70,8 @@ map <C-p> :InstantMarkdownPreview <CR>
 set foldmethod=syntax
 "Don't break words with while wrapping  
 set linebreak
-"Share clipboard with other windows
-set clipboard=unnamed
+"Share clipboard with other windows (not working on mac sierra)
+"set clipboard=unnamed
 "Show line number
 set number 
 "number of visual spaces per TAB
@@ -79,6 +80,7 @@ set tabstop=4
 set softtabstop=4 
 "tabes are spaces
 set expandtab 
+"set the runtime path to include Vundle and initialize
 "indent 4 spaces inted of eight
 set shiftwidth=4 
 "keep 50 lines of command line history
