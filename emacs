@@ -241,7 +241,11 @@
 
 
 
+; Switch alt with cmd if on mac
 
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil))
 
 
 
