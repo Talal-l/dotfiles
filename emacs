@@ -107,7 +107,8 @@
 ;;;;spellcheck
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-
+;; fix spell check error on mac
+(setq ispell-program-name "/usr/local/bin/aspell")
 ;;;;better looking indent
 (setq org-startup-indented t)
 
