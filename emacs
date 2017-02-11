@@ -244,6 +244,8 @@
 
 
 
+;; disable toolbar
+(tool-bar-mode -1)
 
 
 
