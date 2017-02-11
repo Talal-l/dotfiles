@@ -167,11 +167,6 @@
 
 
 
-
-
-
-
-
 ;; twitter boot strap
 
 ;(setq org-publish-project-alist
@@ -242,7 +237,10 @@
 
 
 
-
+;; exit insert mode using "jk"
+(require 'evil-escape)
+(evil-escape-mode 1)
+(setq-default evil-escape-key-sequence "jk")
 
 
 
