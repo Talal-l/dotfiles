@@ -102,7 +102,7 @@
 
 
 ;;;; Syntax highlighting 
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 ;;;;spellcheck
 (add-hook 'text-mode-hook 'flyspell-mode)
@@ -248,6 +248,14 @@
   (setq mac-command-modifier 'meta)
     (setq mac-option-modifier nil))
 
+
+;; kill all buffers
+(defun nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
+
+(global-set-key (kbd "C-x C-k") 'nuke-all-buffers)
 
 
 
