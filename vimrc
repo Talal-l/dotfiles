@@ -21,6 +21,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'jceb/vim-orgmode'
+Plugin 'scrooloose/nerdtree'
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -71,7 +72,7 @@ set foldmethod=syntax
 "Don't break words with while wrapping  
 set linebreak
 "Share clipboard with other windows (not working on mac sierra)
-"set clipboard=unnamed
+set clipboard=unnamed
 "Show line number
 set number 
 "number of visual spaces per TAB
