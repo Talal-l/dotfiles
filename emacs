@@ -102,12 +102,21 @@
 
 
 ;;;; Syntax highlighting 
+<<<<<<< HEAD
 (load-theme 'solarized-dark t)
+=======
+(load-theme 'solarized-light t)
+>>>>>>> mac
 
 ;;;;spellcheck
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+<<<<<<< HEAD
 
+=======
+;; fix spell check error on mac
+(setq ispell-program-name "/usr/local/bin/aspell")
+>>>>>>> mac
 ;;;;better looking indent
 (setq org-startup-indented t)
 
@@ -167,6 +176,14 @@
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> mac
 ;; twitter boot strap
 
 ;(setq org-publish-project-alist
@@ -236,6 +253,7 @@
 
 
 
+<<<<<<< HEAD
 
 ;; exit insert mode using "jk"
 (require 'evil-escape)
@@ -246,6 +264,25 @@
 
 ;; disable toolbar
 (tool-bar-mode -1)
+=======
+; Switch alt with cmd if on mac
+
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil))
+
+
+;; kill all buffers
+(defun nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
+
+(global-set-key (kbd "C-x C-k") 'nuke-all-buffers)
+
+
+
+>>>>>>> mac
 
 
 

@@ -21,7 +21,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'jceb/vim-orgmode'
-Plugin 'freitass/todo.txt-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'dracula/vim'
+
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -69,9 +71,11 @@ let g:instant_markdown_autostart = 0
 map <C-p> :InstantMarkdownPreview <CR>
 "Enable folding by syntax
 set foldmethod=syntax
+"Fold based on indentation
+set foldmethod=indent
 "Don't break words with while wrapping  
 set linebreak
-"Share clipboard with other windows
+"Share clipboard with other windows (not working on mac sierra)
 set clipboard=unnamed
 "Show line number
 set number 
@@ -81,7 +85,8 @@ set tabstop=4
 set softtabstop=4 
 "tabes are spaces
 set expandtab 
-"indent 4 spaces intead of eight
+"set the runtime path to include Vundle and initialize
+"indent 4 spaces inted of eight
 set shiftwidth=4 
 "keep 50 lines of command line history
 set history=500		
@@ -92,8 +97,10 @@ set showcmd
 "do incremental searching
 set incsearch		
 syntax enable
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+color dracula
+"colorscheme default 
 set autoindent
 
 set backup
@@ -109,6 +116,7 @@ set directory =~/.vim/backups//
 
 "encryption
 set cm=blowfish2
+set viminfo=
 
 "spelling
 set spelllang=en_us
@@ -143,7 +151,7 @@ inoremap jk <esc>
 
 "Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-
+set term=xterm-256color
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
