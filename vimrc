@@ -22,6 +22,8 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
+Plugin 'dracula/vim'
+
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
 "plugin on GitHub repo
@@ -69,6 +71,8 @@ let g:instant_markdown_autostart = 0
 map <C-p> :InstantMarkdownPreview <CR>
 "Enable folding by syntax
 set foldmethod=syntax
+"Fold based on indentation
+set foldmethod=indent
 "Don't break words with while wrapping  
 set linebreak
 "Share clipboard with other windows (not working on mac sierra)
@@ -93,8 +97,9 @@ set showcmd
 "do incremental searching
 set incsearch		
 syntax enable
-set background=light
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
+color dracula
 "colorscheme default 
 set autoindent
 
@@ -111,6 +116,7 @@ set directory =~/.vim/backups//
 
 "encryption
 set cm=blowfish2
+set viminfo=
 
 "spelling
 set spelllang=en_us
