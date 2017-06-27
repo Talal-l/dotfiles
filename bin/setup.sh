@@ -9,6 +9,9 @@ ln -s  ~/dotfiles/tmux.conf ~/.tmux.conf
 
 commandExist () { type "$1" &> /dev/null ;}
 
+
+
+
 #........................VIM........................
 # Install vim if not installed
 if !commandExist vim; then 
@@ -44,6 +47,8 @@ fi
 #........................VIM........................
 
 
+
+
 #........................BASH.......................
 # Install Dracul theme 
 git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
@@ -51,3 +56,29 @@ git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
 rm -rf gnome-terminal-colors-dracula
 
 #........................BASH.......................
+
+
+
+
+#........................SYSTEAM....................
+
+# Remap CAP to Ctrl
+gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+
+
+# Remap gnome terminal shortcuts
+GSETTINGS_SCHEMA=org.gnome.Terminal.Legacy.Keybindings
+GSETTINGS_PATH=/org/gnome/terminal/legacy/keybindings/
+SCHEMA_PATH=$GSETTINGS_SCHEMA:$GSETTINGS_PATH
+
+
+gsettings set $SCHEMA_PATH next-tab '<Control>l'
+gsettings set $SCHEMA_PATH prev-tab '<Control>h'
+gsettings set $SCHEMA_PATH new-tab '<Control>t'
+
+
+# To list all available keybindings
+# gsettings list-recursively | grep Terminal.Legacy.Keybindings
+
+
+#........................SYSTEAM....................
