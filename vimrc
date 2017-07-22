@@ -137,6 +137,9 @@ nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "run
 nnoremap <F6> :!./bin/%:r<CR>
 
+"Run python3 code
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+
 "md to pdf
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 
