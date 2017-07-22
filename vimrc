@@ -83,10 +83,10 @@ set number
 set tabstop=4 
 "number of space in tab when editing
 set softtabstop=4 
-"tabes are spaces
+"tabs are spaces
 set expandtab 
 "set the runtime path to include Vundle and initialize
-"indent 4 spaces inted of eight
+"indent 4 spaces instead of eight
 set shiftwidth=4 
 "keep 50 lines of command line history
 set history=500		
@@ -145,6 +145,10 @@ nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 
 "replace ecp with jk in insert mode 
 inoremap jk <esc>
+
+
+"shortcut for nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
 "vim powerline
 "set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
