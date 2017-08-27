@@ -22,6 +22,10 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
+
+
+
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 
 "The following are examples of different formats supported.
@@ -97,9 +101,11 @@ set showcmd
 "do incremental searching
 set incsearch		
 syntax enable
-"set background=dark
+set background=light
+colorscheme PaperColor
 "colorscheme solarized
-color dracula
+"color dracula
+
 "colorscheme default 
 set autoindent
 
