@@ -85,8 +85,10 @@ set foldmethod=syntax
 set foldmethod=indent
 "Don't break words with while wrapping  
 set linebreak
-"Share clipboard with other windows (not working on mac sierra)
-set clipboard=unnamed
+"Share clipboard with other windows (not working on mac sierra inside tmux)
+if $TMUX == ''
+        set clipboard+=unnamed
+    endif
 "Show line number
 set number 
 "number of visual spaces per TAB
