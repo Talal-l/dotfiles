@@ -23,6 +23,12 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+
+" Optional:
+Plugin 'honza/vim-snippets'
 
 
 Plugin 'NLKNguyen/papercolor-theme'
