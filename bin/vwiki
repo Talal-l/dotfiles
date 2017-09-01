@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# A script for quickly starting VimWiki
-
-vim -c VimwikiIndex

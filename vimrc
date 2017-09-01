@@ -181,14 +181,21 @@ syntax enable
 "do incremental searching
 set incsearch
 
-"Use md for vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " }}}
 " auto commands {{{
 
 "Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" }}}
+" markdown note system {{{
+"Use md for vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+"Start vimWiki when opining macVim or gvim
+if has("gui_running")
+    autocmd VimEnter * VimwikiIndex
+endif
 
 " }}}
 
