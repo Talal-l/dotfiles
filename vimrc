@@ -160,6 +160,9 @@ nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "replace ecp with jk in insert mode 
 inoremap jk <esc>
 
+"to prevent clash with youcompleteme, change snippet trigger
+imap <C-f> <Plug>snipMateNextOrTrigger
+smap <C-f> <Plug>snipMateNextOrTrigger
 
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -172,7 +175,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 "Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-set term=xterm-256color
+"set term=xterm-256color
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
