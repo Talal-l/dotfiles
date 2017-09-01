@@ -195,6 +195,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}
 "Start vimWiki when opining macVim or gvim
 if has("gui_running")
     autocmd VimEnter * VimwikiIndex
+    set guifont=Monaco:h15
 endif
 
 " }}}
