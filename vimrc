@@ -22,12 +22,13 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-
 Plugin 'garbas/vim-snipmate'
-" Optional:
 Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/goyo.vim'
+Plugin 'vimwiki/vimwiki'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -116,6 +117,7 @@ imap <C-f> <Plug>snipMateNextOrTrigger
 smap <C-f> <Plug>snipMateNextOrTrigger
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
+let mapleader = "\<Space>"
 
 " }}}
 " style and layout {{{
@@ -127,10 +129,6 @@ colorscheme PaperColor
 set t_Co=256
 "Don't break words with while wrapping  
 set linebreak
-"Share clipboard with other windows (not working on mac sierra inside tmux)
-if $TMUX == ''
-        set clipboard+=unnamed
-    endif
 "Show line number
 set number 
 "show the cursor position all the time
@@ -163,6 +161,13 @@ set autoindent
 " }}}
 " misc {{{
 
+set nocompatible
+filetype plugin on
+
+"Share clipboard with other windows (not working on mac sierra inside tmux)
+if $TMUX == ''
+        set clipboard+=unnamed
+    endif
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 "In many terminal emulators the mouse works just fine, thus enable it.
