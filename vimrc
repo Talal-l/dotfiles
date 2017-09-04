@@ -64,10 +64,6 @@ filetype plugin indent on    " required
 " }}}
 " folding {{{
 
-"To enable folding for markdown
-"let g:markdown_enable_folding = 1 "It makes vim very slow
-"Disable vim-instant-markdown auto preview 
-let g:instant_markdown_autostart = 0
 "Fold based on indentation
 set foldmethod=indent
 
@@ -97,8 +93,6 @@ map <F8> :setlocal spell!<CR>
 " }}}
 "general maps {{{
 
-" C-p will launch vim-instant-markdown
-map <C-p> :InstantMarkdownPreview <CR>
 "show the limit for line length
 "compile
 nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR> 
@@ -139,8 +133,6 @@ set showcmd
 " }}}
 " privacy {{{
 
-"To use grip for markdown preview
-let vim_markdown_preview_github=1
 "encryption
 set cm=blowfish2
 set viminfo=
@@ -194,9 +186,17 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "Start vimWiki when opining macVim or gvim
 if has("gui_running")
-    autocmd VimEnter * VimwikiIndex
+    "autocmd VimEnter * edit ~/vimwiki/index.md
+    autocmd VimEnter * nested  VimwikiIndex
     set guifont=Monaco:h15
 endif
+
+"C-p will launch vim-instant-markdown
+map <C-p> :InstantMarkdownPreview <CR>
+"To enable folding for markdown
+"let g:markdown_enable_folding = 1 "It makes vim very slow
+"Disable vim-instant-markdown auto preview
+let g:instant_markdown_autostart = 0
 
 " }}}
 
