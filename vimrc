@@ -117,6 +117,8 @@ colorscheme PaperColor
 set t_Co=256
 "Don't break words while wrapping  
 set linebreak
+"column length indicator
+set colorcolumn=80
 "Show line number
 set number 
 "show the cursor position all the time
