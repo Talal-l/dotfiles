@@ -9,15 +9,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-latex/vim-latex'
-"Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'suan/vim-instant-markdown'
-"Plugin 'gabrielelana/vim-markdown'
-"Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'godlygeek/tabular'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax' 
 Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -121,7 +115,7 @@ colorscheme PaperColor
 "colorscheme solarized
 "color dracula
 set t_Co=256
-"Don't break words with while wrapping  
+"Don't break words while wrapping  
 set linebreak
 "Show line number
 set number 
