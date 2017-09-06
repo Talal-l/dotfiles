@@ -175,6 +175,8 @@ set incsearch
 
 "Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+"Set spell and hard wrapping for md files
+autocmd FileType markdown setlocal spell tw=80
 
 " }}}
 " markdown note system {{{
