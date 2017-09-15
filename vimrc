@@ -22,7 +22,6 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
-Plugin 'vimwiki/vimwiki'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -110,7 +109,12 @@ let mapleader = "\<Space>"
 " }}}
 " style and layout {{{
 
-set background=light
+if has('mac')
+    set background=light
+else 
+    set background=dark
+endif
+
 colorscheme PaperColor
 "colorscheme solarized
 "color dracula
@@ -180,15 +184,6 @@ autocmd FileType markdown setlocal spell tw=80
 
 " }}}
 " markdown note system {{{
-"Use md for vimwiki
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-"Start vimWiki when opining macVim or gvim
-if has("gui_running")
-    "autocmd VimEnter * edit ~/vimwiki/index.md
-    autocmd VimEnter * nested  VimwikiIndex
-    set guifont=Monaco:h15
-endif
-
 "C-p will launch vim-instant-markdown
 map <C-p> :InstantMarkdownPreview <CR>
 "To enable folding for markdown
