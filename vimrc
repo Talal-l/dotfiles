@@ -110,14 +110,13 @@ let mapleader = "\<Space>"
 " style and layout {{{
 
 if has('mac')
-    set background=light
-else 
-    set background=dark
+    colorscheme PaperColor
+    "set background=light
+else
+    color dracula
 endif
 
-colorscheme PaperColor
 "colorscheme solarized
-"color dracula
 set t_Co=256
 "Don't break words while wrapping  
 set linebreak
@@ -157,6 +156,20 @@ set nocompatible
 filetype plugin on
 
 "Share clipboard with other windows (not working on mac sierra inside tmux)
+
+if has("unix")
+    let s:uname = substitute(system("uname -s"), '\n', '', '')
+
+    if s:uname == "Darwin"
+        "Rnnning under mac
+        if $TMUX == ''
+            set clipboard+=unnamed
+        endif
+    elseif s:uname == "Linux"
+            set clipboard+=unnamed
+    endif
+endif
+
 if $TMUX == ''
         set clipboard+=unnamed
     endif
