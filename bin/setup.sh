@@ -43,7 +43,7 @@ if !commandExist  python3; then
     sudo apt install python3
 fi
 
-#python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+source ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --all
 #........................VIM........................
 
 
@@ -52,7 +52,7 @@ fi
 #........................BASH.......................
 # Install Dracul theme 
 git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
-./gnome-terminal-colors-dracula/install.sh -s Dracula -p Default --skip-dircolors
+./gnome-terminal-colors-dracula/install.sh -s Dracula --skip-dircolors
 rm -rf gnome-terminal-colors-dracula
 
 #........................BASH.......................
@@ -60,7 +60,7 @@ rm -rf gnome-terminal-colors-dracula
 
 
 
-#........................SYSTEAM....................
+#........................SYSTEM.....................
 
 # Remap CAP to Ctrl
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
@@ -81,4 +81,4 @@ gsettings set $SCHEMA_PATH new-tab '<Control>t'
 # gsettings list-recursively | grep Terminal.Legacy.Keybindings
 
 
-#........................SYSTEAM....................
+#........................SYSTEM.....................
