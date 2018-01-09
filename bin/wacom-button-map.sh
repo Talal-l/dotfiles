@@ -1,5 +1,5 @@
 xsetwacom set "$pad1" "Button" "1" "key 0"
-xsetwacom set "$pad1" "Button" "2" "key +shift +ctrl +alt +T " # 1
+xsetwacom set "$pad1" "Button" "2" "key +shift +ctrl +T " # 1
 xsetwacom set "$pad1" "Button" "3" "key 2 " # 2
 xsetwacom set "$pad1" "Button" "8" "key 3 " 
 xsetwacom set "$pad1" "Button" "9" "key 4 "
