@@ -14,14 +14,14 @@ commandExist () { type "$1" &> /dev/null ;}
 
 #........................VIM........................
 # Install vim if not installed
-if !commandExist vim; then 
+if ! commandExist vim; then 
     echo "Vim was not installed \n Instlling vim\n"
     sudo apt install vim -y
    
 fi 
 
 # Install vundle
-if !commandExist git ;then
+if ! commandExist git ;then
     echo "Git not installed\n Installing git...."
     sudo apt install git  -y 
 fi
@@ -38,12 +38,12 @@ mkdir ~/.vim/backups
 sudo apt-get install build-essential cmake -y
 sudo apt-get install python-dev python3-dev -y
 # Compile YCM with python3
-if !commandExist  python3; then
+if ! commandExist  python3; then
     echo "Python 3 not installed \n Installing python3"
     sudo apt install python3
 fi
 
-source ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --all
+#source ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --all
 #........................VIM........................
 
 
