@@ -1,11 +1,11 @@
 #!/bin/bash 
 
 echo "Creating symlinks"
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s  ~/dotfiles/emacs.d ~/.emacs.d
-ln -s  ~/dotfiles/emacs ~/.emacs
-ln -s  ~/dotfiles/bashrc ~/.bashrc
-ln -s  ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf  ~/dotfiles/emacs.d ~/.emacs.d
+ln -sf  ~/dotfiles/emacs ~/.emacs
+ln -sf  ~/dotfiles/bashrc ~/.bashrc
+ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
 
 commandExist () { type "$1" &> /dev/null ;}
 
