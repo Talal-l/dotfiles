@@ -8,11 +8,8 @@ call vundle#begin()
 "let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'godlygeek/tabular'
-Plugin 'jceb/vim-orgmode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -102,6 +99,8 @@ inoremap jk <esc>
 "to prevent clash with youcompleteme, change snippet trigger
 imap <C-f> <Plug>snipMateNextOrTrigger
 smap <C-f> <Plug>snipMateNextOrTrigger
+imap <C-d> <Plug>snipMateBack
+smap <C-d> <Plug>snipMateBack
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
 let mapleader = "\<Space>"
@@ -109,14 +108,15 @@ let mapleader = "\<Space>"
 " }}}
 " style and layout {{{
 
+"colorscheme solarized
+color dracula
+
 if has('mac')
-    colorscheme PaperColor
+    "colorscheme PaperColor
     "set background=light
 else
-    color dracula
 endif
 
-"colorscheme solarized
 set t_Co=256
 "Don't break words while wrapping  
 set linebreak
@@ -173,12 +173,15 @@ endif
 if $TMUX == ''
         set clipboard+=unnamed
     endif
+
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
 "In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
 endif
+
 "YCM config
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
 
