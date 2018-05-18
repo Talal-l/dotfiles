@@ -121,8 +121,10 @@ fi
 # add a script directory 
 export PATH="$HOME/dotfiles/bin:$PATH"
 
-# enable git bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-  fi
 
+# enable git bash completion on mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+    fi
+fi
