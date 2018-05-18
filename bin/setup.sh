@@ -63,23 +63,27 @@ rm -rf gnome-terminal-colors-dracula
 
 #........................SYSTEM.....................
 
-# Remap CAP to Ctrl
-gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
+# configure  gnome 
+if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
+    
+    # Remap CAP to Ctrl
+    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
 
 
-# Remap gnome terminal shortcuts
-GSETTINGS_SCHEMA=org.gnome.Terminal.Legacy.Keybindings
-GSETTINGS_PATH=/org/gnome/terminal/legacy/keybindings/
-SCHEMA_PATH=$GSETTINGS_SCHEMA:$GSETTINGS_PATH
+    # Remap gnome terminal shortcuts
+    GSETTINGS_SCHEMA=org.gnome.Terminal.Legacy.Keybindings
+    GSETTINGS_PATH=/org/gnome/terminal/legacy/keybindings/
+    SCHEMA_PATH=$GSETTINGS_SCHEMA:$GSETTINGS_PATH
 
 
-gsettings set $SCHEMA_PATH next-tab '<Control>l'
-gsettings set $SCHEMA_PATH prev-tab '<Control>h'
-gsettings set $SCHEMA_PATH new-tab '<Control>t'
+    gsettings set $SCHEMA_PATH next-tab '<Control>l'
+    gsettings set $SCHEMA_PATH prev-tab '<Control>h'
+    gsettings set $SCHEMA_PATH new-tab '<Control>t'
 
 
-# To list all available keybindings
-# gsettings list-recursively | grep Terminal.Legacy.Keybindings
+    # To list all available keybindings
+    # gsettings list-recursively | grep Terminal.Legacy.Keybindings
 
+fi
 
 #........................SYSTEM.....................

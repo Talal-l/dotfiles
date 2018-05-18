@@ -18,7 +18,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
-Plugin 'junegunn/goyo.vim'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -110,7 +109,6 @@ let mapleader = "\<Space>"
 
 "colorscheme solarized
 color dracula
-
 if has('mac')
     "colorscheme PaperColor
     "set background=light
@@ -199,14 +197,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType markdown setlocal spell tw=80
 
 " }}}
-" markdown note system {{{
-"C-p will launch vim-instant-markdown
-map <C-p> :InstantMarkdownPreview <CR>
-"To enable folding for markdown
-"let g:markdown_enable_folding = 1 "It makes vim very slow
-"Disable vim-instant-markdown auto preview
-let g:instant_markdown_autostart = 0
 
-" }}}
+
 
 " vim:foldmethod=marker
