@@ -1,7 +1,8 @@
 #!/bin/bash 
 
 echo "Creating symlinks"
-ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim/ftplugin ~/.vim/ftplugin
 ln -sf  ~/dotfiles/emacs.d ~/.emacs.d
 ln -sf  ~/dotfiles/emacs ~/.emacs
 ln -sf  ~/dotfiles/bashrc ~/.bashrc

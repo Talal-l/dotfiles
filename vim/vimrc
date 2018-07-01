@@ -22,6 +22,7 @@ Plugin 'othree/xml.vim'
 Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
+Plugin 'skywind3000/asyncrun.vim'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
