@@ -18,6 +18,10 @@ Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
+Plugin 'othree/xml.vim'
+Plugin 'w0rp/ale'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -89,8 +93,6 @@ nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR>
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "run
 nnoremap <F6> :!./bin/%:r<CR>
-"Run python3 code
-nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 "md to pdf
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "replace ecp with jk in insert mode 
@@ -102,8 +104,10 @@ imap <C-d> <Plug>snipMateBack
 smap <C-d> <Plug>snipMateBack
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
-let mapleader = "\<Space>"
 
+"set leader key 
+let mapleader = "\<Space>"
+nnoremap <SPACE> <Nop>
 " }}}
 " style and layout {{{
 
@@ -127,6 +131,9 @@ set ruler
 "display incomplete commands
 set showcmd
 
+"show status line
+set laststatus=2
+
 " }}}
 " privacy {{{
 
@@ -145,7 +152,9 @@ set softtabstop=4
 set expandtab 
 "indent 4 spaces instead of eight
 set shiftwidth=4
+
 set autoindent
+set textwidth=79
 
 " }}}
 " misc {{{
@@ -187,7 +196,6 @@ syntax enable
 "do incremental searching
 set incsearch
 
-
 " }}}
 " auto commands {{{
 
@@ -197,7 +205,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType markdown setlocal spell tw=80
 
 " }}}
+" python settings {{{
 
+"Run python3 code
+nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 
+" }}}
 
 " vim:foldmethod=marker
