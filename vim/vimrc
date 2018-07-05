@@ -23,6 +23,7 @@ Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'farfanoide/vim-kivy'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -191,7 +192,11 @@ if has('mouse')
 endif
 
 "YCM config
-let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_python_binary_path = 'python3'
+let g:ycm_server_keep_logfiles = 1
+
 
 syntax enable
 "do incremental searching
