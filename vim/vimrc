@@ -19,11 +19,15 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'othree/xml.vim'
-Plugin 'w0rp/ale'
+" linting engine (bug causing cursor to jump to state line when passing over
+" a line with an error
+"Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'farfanoide/vim-kivy'
+" markdown preview
+Plugin 'suan/vim-instant-markdown'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -84,6 +88,11 @@ set directory =~/.vim/backups//
 "spelling
 set spelllang=en_us
 map <F8> :setlocal spell!<CR>
+
+"instant markdown
+map <C-m> :InstantMarkdownPreview<CR>
+let g:instant_markdown_autostart = 0
+
 
 " }}}
 "general maps {{{
