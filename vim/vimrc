@@ -19,6 +19,8 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'othree/xml.vim'
+Plugin 'kovisoft/slimv'
+
 " linting engine (bug causing cursor to jump to state line when passing over
 " a line with an error
 "Plugin 'w0rp/ale'
