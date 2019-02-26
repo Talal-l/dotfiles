@@ -125,6 +125,7 @@ nnoremap <leader>f :Autoformat<CR>
 "utilSnips mapping
 let g:UltiSnipsExpandTrigger="<C-f>"
 
+nnoremap <leader>v :tabedit $MYVIMRC<CR>
 
 " }}}
 " style and layout {{{
@@ -178,6 +179,8 @@ set textwidth=79
 " plugins config {{{
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
+" reduce update time for githutter
+set updatetime=100
 
 " }}}
 " misc {{{
@@ -230,6 +233,11 @@ set incsearch
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "Set spell and hard wrapping for md files
 autocmd FileType markdown setlocal spell tw=80
+
+"source the vimrc file after saving it
+if has("autocmd")
+      autocmd bufwritepost .vimrc source $MYVIMRC
+  endif
 
 " }}}
 " python settings {{{
