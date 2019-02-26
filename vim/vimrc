@@ -19,6 +19,7 @@ Plugin 'kovisoft/slimv'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'airblade/vim-gitgutter'
 
 
 
@@ -123,8 +124,6 @@ nnoremap <leader>f :Autoformat<CR>
 
 "utilSnips mapping
 let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
 
 " }}}
@@ -177,6 +176,8 @@ set textwidth=79
 
 " }}}
 " plugins config {{{
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
 
 " }}}
 " misc {{{

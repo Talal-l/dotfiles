@@ -8,6 +8,7 @@ ln -sf  ~/dotfiles/emacs ~/.emacs
 ln -sf  ~/dotfiles/bashrc ~/.bashrc
 ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
 ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf  ~/dotfiles/vim/UltiSnips ~/.vim/UltiSnips
 
 commandExist () { type "$1" &> /dev/null ;}
 
