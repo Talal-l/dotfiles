@@ -11,16 +11,15 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'othree/xml.vim'
 Plugin 'kovisoft/slimv'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
 
 
 " linting engine (bug causing cursor to jump to state line when passing over
@@ -112,11 +111,6 @@ nnoremap <F6> :!./bin/%:r<CR>
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "replace ecp with jk in insert mode 
 inoremap jk <esc>
-"to prevent clash with youcompleteme, change snippet trigger
-imap <C-f> <Plug>snipMateNextOrTrigger
-smap <C-f> <Plug>snipMateNextOrTrigger
-imap <C-d> <Plug>snipMateBack
-smap <C-d> <Plug>snipMateBack
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -125,7 +119,12 @@ let mapleader = "\<Space>"
 nnoremap <SPACE> <Nop>
 
 "shortcut for autoformat
-nnoremap <C-f> :Autoformat<CR>
+nnoremap <leader>f :Autoformat<CR>
+
+"utilSnips mapping
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
 
 " }}}
