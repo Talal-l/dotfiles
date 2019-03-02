@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\] :\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\[\033[01;32m\]$(parse_git_branch)\[\033[00m\]$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
@@ -93,6 +93,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ls='ls -G'
 
+# useful aliases
+alias f='find . -iname'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -121,6 +124,12 @@ fi
 # add a script directory 
 export PATH="$HOME/dotfiles/bin:$PATH"
 
+# Git branch in prompt.
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+# export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 # enable git bash completion on mac
 if [[ "$OSTYPE" == "darwin"* ]]; then

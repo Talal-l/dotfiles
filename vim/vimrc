@@ -11,18 +11,27 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'othree/xml.vim'
-Plugin 'w0rp/ale'
+Plugin 'kovisoft/slimv'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'turbio/bracey.vim'
+
+
+" linting engine (bug causing cursor to jump to state line when passing over
+" a line with an error
+"Plugin 'w0rp/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'farfanoide/vim-kivy'
+" markdown preview
+Plugin 'suan/vim-instant-markdown'
 
 "The following are examples of different formats supported.
 "Keep Plugin commands between vundle#begin/end.
@@ -84,6 +93,11 @@ set directory =~/.vim/backups//
 set spelllang=en_us
 map <F8> :setlocal spell!<CR>
 
+"instant markdown
+map <C-m> :InstantMarkdownPreview<CR>
+let g:instant_markdown_autostart = 0
+
+
 " }}}
 "general maps {{{
 
@@ -98,22 +112,26 @@ nnoremap <F6> :!./bin/%:r<CR>
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "replace ecp with jk in insert mode 
 inoremap jk <esc>
-"to prevent clash with youcompleteme, change snippet trigger
-imap <C-f> <Plug>snipMateNextOrTrigger
-smap <C-f> <Plug>snipMateNextOrTrigger
-imap <C-d> <Plug>snipMateBack
-smap <C-d> <Plug>snipMateBack
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
 "set leader key 
 let mapleader = "\<Space>"
 nnoremap <SPACE> <Nop>
+
+"shortcut for autoformat
+nnoremap <leader>f :Autoformat<CR>
+
+"utilSnips mapping
+let g:UltiSnipsExpandTrigger="<C-f>"
+
+nnoremap <leader>v :tabedit $MYVIMRC<CR>
+
 " }}}
 " style and layout {{{
 
 "colorscheme solarized
-color dracula
+colorscheme sierra 
 if has('mac')
     "colorscheme PaperColor
     "set background=light
@@ -134,6 +152,17 @@ set showcmd
 
 "show status line
 set laststatus=2
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+
 
 " }}}
 " privacy {{{
@@ -158,6 +187,13 @@ set autoindent
 set textwidth=79
 
 " }}}
+" plugins config {{{
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+" reduce update time for githutter
+set updatetime=100
+
+" }}}
 " misc {{{
 
 set nocompatible
@@ -170,11 +206,15 @@ if has("unix")
 
     if s:uname == "Darwin"
         "Rnnning under mac
+        " set correct YCM  path under mac
+        let g:ycm_server_python_interpreter="/usr/local/bin/python3"
         if $TMUX == ''
             set clipboard+=unnamed
         endif
     elseif s:uname == "Linux"
-            set clipboard+=unnamed
+        " set correct YCM  path under linux 
+        let g:ycm_server_python_interpreter = '/usr/bin/python3'
+        set clipboard+=unnamed
     endif
 endif
 
@@ -191,9 +231,9 @@ if has('mouse')
 endif
 
 "YCM config
-"let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
-"let g:ycm_python_binary_path="python3"
-"let g:ycm_server_python_interpreter="/usr/local/bin/python3"
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
+let g:ycm_python_binary_path="python3"
+let g:ycm_server_keep_logfiles = 1
 
 
 syntax enable
@@ -208,6 +248,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 "Set spell and hard wrapping for md files
 autocmd FileType markdown setlocal spell tw=80
 
+"source the vimrc file after saving it
+if has("autocmd")
+      autocmd bufwritepost .vimrc source $MYVIMRC
+  endif
+
 " }}}
 " python settings {{{
 
@@ -215,5 +260,12 @@ autocmd FileType markdown setlocal spell tw=80
 nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 
 " }}}
+" lisp settings {{{
+
+"Start swank with slimv
+let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"'
+
+" }}}
+
 
 " vim:foldmethod=marker

@@ -21,7 +21,7 @@ function! s:compile_and_run()
     elseif &filetype == 'sh'
        exec "AsyncRun! time bash %"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python %"
+       exec "AsyncRun! time python3 %"
     endif
 endfunction
 
