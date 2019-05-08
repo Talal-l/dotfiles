@@ -2,14 +2,10 @@
 
 echo "Creating symlinks"
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
-ln -sf ~/dotfiles/vim/ftplugin ~/.vim/ftplugin
-ln -sf  ~/dotfiles/emacs.d ~/.emacs.d
-ln -sf  ~/dotfiles/emacs ~/.emacs
+ln -sf ~/dotfiles/vim ~/.vim
 ln -sf  ~/dotfiles/bashrc ~/.bashrc
 ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
 ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
-ln -sf  ~/dotfiles/vim/UltiSnips ~/.vim/UltiSnips
-ln -sf  ~/dotfiles/vim/colors ~/.vim/colors
 
 commandExist () { type "$1" &> /dev/null ;}
 
