@@ -1,0 +1,17 @@
+alefragnani.Bookmarks
+christian-kohler.path-intellisense
+CoenraadS.bracket-pair-colorizer
+dbaeumer.jshint
+dbaeumer.vscode-eslint
+dracula-theme.theme-dracula
+eamodio.gitlens
+mkaufman.HTMLHint
+msjsdiag.debugger-for-chrome
+ms-python.python
+ms-vscode.cpptools
+ritwickdey.LiveServer
+streetsidesoftware.code-spell-checker
+vscodevim.vim
+xabikos.JavaScriptSnippets
+yzhang.markdown-all-in-one
+Zignd.html-css-class-completion
