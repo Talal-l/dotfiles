@@ -124,6 +124,12 @@ fi
 # add a script directory 
 export PATH="$HOME/dotfiles/bin:$PATH"
 
+# add pip3 packages to path
+if [ -d "$HOME/.local/bin" ] ; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+
 # Git branch in prompt.
 
 parse_git_branch() {

@@ -5,11 +5,13 @@ let b:ale_fixers = [
 \   'yapf',
 \]
 
-nnoremap <leader>f :ALEFix<CR>
+nnoremap <leader>l :ALEFix<CR>
 
 " Quick run via <F5>
 nnoremap <F5> :call <SID>compile_and_run()<CR>
 
+
+" this shouldn't be here
 function! s:compile_and_run()
     exec 'w'
     if &filetype == 'c'

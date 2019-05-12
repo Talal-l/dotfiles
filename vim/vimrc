@@ -21,6 +21,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'turbio/bracey.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'w0rp/ale'
 
 
 " linting engine (bug causing cursor to jump to state line when passing over
@@ -131,7 +133,8 @@ nnoremap <leader>v :tabedit $MYVIMRC<CR>
 " style and layout {{{
 
 "colorscheme solarized
-colorscheme sierra 
+colorscheme sierra
+
 if has('mac')
     "colorscheme PaperColor
     "set background=light
