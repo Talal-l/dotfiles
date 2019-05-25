@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'othree/xml.vim'
 Plugin 'kovisoft/slimv'
 Plugin 'Chiel92/vim-autoformat'
@@ -143,7 +144,7 @@ endif
 
 set t_Co=256
 "Don't break words while wrapping  
-set linebreak
+"set linebreak
 "column length indicator
 set colorcolumn=80
 "Show line number
@@ -237,7 +238,8 @@ endif
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
 let g:ycm_python_binary_path="python3"
 let g:ycm_server_keep_logfiles = 1
-
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 syntax enable
 "do incremental searching
