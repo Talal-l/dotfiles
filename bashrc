@@ -147,7 +147,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     fi
 fi
 
-# start tmux on terminal start
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux
-fi
