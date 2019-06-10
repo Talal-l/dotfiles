@@ -1,0 +1,23 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+
+        },
+        
+    },
+    "rules": {
+        "strict": true,
+        "semi": "error",
+        "quotes": ["error", "double"],
+        "eqeqeq": "warn",
+        "linebreak-style": ["error", "unix"],
+        "indent": ["error",4],
+        "capitalized-comments":["never", "error"],
+
+
+
+    }
+}

@@ -1,11 +1,56 @@
 {
     "liveServer.settings.host": "localhost",
     "[jsonc]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "explorer.confirmDelete": false
-
+    "explorer.confirmDelete": false,
+    "files.associations": {
+        "*.py": "python"
+    },
+    // setting sync
+    "sync.gist": "e73efa19d0bbd816156fb0d9ef608fd2",
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.quietSync": true,
+    "workbench.colorTheme": "Horizon Bold",
+    // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
+    "editor.tabCompletion": "on",
+    // vim config
+    "vim.useSystemClipboard": true,
+    "vim.leader": " ",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [],
+            "commands": []
+        },
+    ],
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "right",
+    "window.zoomLevel": 0,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

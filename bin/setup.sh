@@ -4,6 +4,7 @@ ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/dotfiles/vscode/snippets ~/.config/Code/User/snippets
 ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf ~/dotfiles/extra_config/eslintrc  ~/.eslintrc
 
 commandExist () { type "$1" &> /dev/null ;}
 #........................VIM........................
