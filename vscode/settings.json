@@ -52,5 +52,11 @@
     "window.zoomLevel": 0,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.eslintIntegration": true,
+    "prettier.tabWidth": 4,
+    "editor.detectIndentation": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
