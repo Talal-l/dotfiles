@@ -1,11 +1,6 @@
 {
     "liveServer.settings.host": "localhost",
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
+
     "explorer.confirmDelete": false,
     "files.associations": {
         "*.py": "python"
@@ -15,7 +10,7 @@
     "sync.autoDownload": true,
     "sync.autoUpload": true,
     "sync.quietSync": true,
-    "workbench.colorTheme": "Horizon Bold",
+    "workbench.colorTheme": "Dracula",
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
     "editor.tabCompletion": "on",
     // vim config
@@ -23,39 +18,50 @@
     "vim.leader": " ",
     "vim.insertModeKeyBindings": [
         {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "<leader>",
-                "f"
-            ],
-            "commands": [
-                "editor.action.formatDocument"
-            ]
+            "before": ["<leader>", "f"],
+            "commands": ["editor.action.formatDocument"]
         },
         {
             "before": [],
             "commands": []
-        },
+        }
     ],
     "workbench.activityBar.visible": true,
-    "workbench.sideBar.location": "right",
     "window.zoomLevel": 0,
+
+    "editor.detectIndentation": false,
+    "json.schemas": [
+        {
+            "fileMatch": ["cypress.json"],
+            "url": "https://on.cypress.io/cypress.schema.json"
+        }
+    ],
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDragAndDrop": false,
+    "editor.renderWhitespace": "none",
+    "liveServer.settings.donotVerifyTags": true,
+    "javascript.suggest.completeFunctionCalls": true,
+    "git.autofetch": true,
+    "git.autoStash": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.eslintIntegration": true,
+    "prettier.tabWidth": 4,
+    "prettier.jsxBracketSameLine": true,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "prettier.eslintIntegration": true,
-    "prettier.tabWidth": 4,
-    "editor.detectIndentation": false,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
