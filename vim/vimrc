@@ -104,7 +104,7 @@ let g:instant_markdown_autostart = 0
 
 "show the limit for line length
 "compile
-nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR>
+"nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR>
 "compile md to latex
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "run
@@ -202,6 +202,11 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " reduce update time for githutter
 set updatetime=100
+
+" ctrlp custom ignore
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+
 
 " }}}
 " misc {{{
