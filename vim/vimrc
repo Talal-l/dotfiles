@@ -26,6 +26,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'turbio/bracey.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
@@ -128,12 +129,18 @@ let g:UltiSnipsExpandTrigger="<C-f>"
 
 nnoremap <leader>v :tabedit $MYVIMRC<CR>
 
-" ale mapping
+" ale mappings
 nnoremap <leader>e :ALENextWrap<CR>
 nnoremap <leader>E :ALEPreviousWrap<CR>
 nnoremap <leader>r :ALEPreviousWrap<CR>
 nnoremap <leader>gd :ALEGoToDefinition<CR>
 
+" YCM mappings
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" nerd commenter mappings 
+
+map gc <Plug>NERDCommenterToggle
 
 
 " }}}
@@ -250,7 +257,8 @@ let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
 let g:ycm_python_binary_path="python3"
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_always_populate_location_list = 1
+
 
 syntax enable
 "do incremental searching
