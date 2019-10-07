@@ -78,9 +78,6 @@ map <C-n> :NERDTreeToggle<CR>
 let mapleader = "\<Space>"
 nnoremap <SPACE> <Nop>
 
-"shortcut for autoformat
-nnoremap <leader>f :Autoformat<CR>
-
 "utilSnips mapping
 let g:UltiSnipsExpandTrigger="<C-f>"
 
@@ -90,6 +87,7 @@ nnoremap <leader>v :tabedit $MYVIMRC<CR>
 nnoremap <leader>e :ALENextWrap<CR>
 nnoremap <leader>E :ALEPreviousWrap<CR>
 nnoremap <leader>r :ALEPreviousWrap<CR>
+map <leader>f <Plug>(ale_fix)
 
 "YCM mappings
 map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
