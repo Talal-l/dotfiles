@@ -5,7 +5,8 @@ sudo apt-get install -y vim cmake tmux curl \
     virt-manager bridge-utils \
     qemu-kvm build-essential \
     python3 python3-dev \
-    xclip
+    xclip \
+    clang clang-format
 
 
 sudo apt-get install -y chrome-gnome-shell
