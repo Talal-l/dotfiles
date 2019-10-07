@@ -63,9 +63,6 @@ let g:instant_markdown_autostart = 0
 " }}}
 "general maps {{{
 
-"show the limit for line length
-"compile
-"nnoremap <F5> :!g++ -g % -o ./bin/%:r<CR>
 "compile md to latex
 nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 "run
@@ -243,18 +240,6 @@ augroup vimrc
     "source the vimrc file after saving it
     autocmd bufwritepost .vimrc source $MYVIMRC
 augroup END
-
-" }}}
-" python settings {{{
-
-"Run python3 code
-nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
-
-" }}}
-" lisp settings {{{
-
-"Start swank with slimv
-let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"'
 
 " }}}
 
