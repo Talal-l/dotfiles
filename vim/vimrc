@@ -67,28 +67,6 @@ filetype plugin indent on    " required
 "see :h vundle for more details or wiki for FAQ
 "Put your non-Plugin stuff after this line
 " }}}
-" folding {{{
-
-"Fold based on indentation
-set foldmethod=indent
-
-" }}}
-" backup {{{
-
-set backup
-set swapfile
-"save undo's after file closes
-set undofile
-"how many undo's to save
-set undolevels=1000
-"keep 50 lines of command line history
-set history=500
-"move swap and backup to VimBackup
-set undodir=~/.vim/backups//
-set backupdir=~/.vim/backups//
-set directory =~/.vim/backups//
-
-" }}}
 " writing aid {{{
 
 "spelling
@@ -129,20 +107,20 @@ let g:UltiSnipsExpandTrigger="<C-f>"
 
 nnoremap <leader>v :tabedit $MYVIMRC<CR>
 
-" ale mappings
+"ale mappings
 nnoremap <leader>e :ALENextWrap<CR>
 nnoremap <leader>E :ALEPreviousWrap<CR>
 nnoremap <leader>r :ALEPreviousWrap<CR>
 
-" YCM mappings
+"YCM mappings
 map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" nerd commenter mappings 
+"nerd commenter mappings 
 map gc <Plug>NERDCommenterToggle
 
 
 " }}}
-" style and layout {{{
+" style and formating {{{
 
 "colorscheme solarized
 colorscheme sierra
@@ -152,6 +130,18 @@ if has('mac')
     "set background=light
 else
 endif
+
+"number of visual spaces per TAB
+set tabstop=4
+"number of space in tab when editing
+set softtabstop=4
+"tabs are spaces
+set expandtab
+"indent 4 spaces instead of eight
+set shiftwidth=4
+
+set autoindent
+"set textwidth=79
 
 set t_Co=256
 "Don't break words while wrapping
@@ -180,35 +170,20 @@ endfunc
 
 
 " }}}
-" privacy {{{
-
-"encryption
-set cm=blowfish2
-set viminfo=
-
-" }}}
-" tab and spaces {{{
-
-"number of visual spaces per TAB
-set tabstop=4
-"number of space in tab when editing
-set softtabstop=4
-"tabs are spaces
-set expandtab
-"indent 4 spaces instead of eight
-set shiftwidth=4
-
-set autoindent
-"set textwidth=79
-
-" }}}
 " plugins config {{{
+
+"YCM config
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
+let g:ycm_python_binary_path="python3"
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_always_populate_location_list = 1
+let g:ycm_log_level = "debug"
+
+" utilsnips config
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
-" reduce update time for githutter
-set updatetime=100
-
-" ctrlp custom ignore
+" ctrlp config 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 
@@ -219,13 +194,19 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 set nocompatible
 filetype plugin on
 
-"Share clipboard with other windows (not working on mac sierra inside tmux)
+"fold based on indentation
+set foldmethod=indent
+
+" reduce update time for githutter
+set updatetime=100
+
+"share clipboard with other windows (not working on mac sierra inside tmux)
 
 if has("unix")
     let s:uname = substitute(system("uname -s"), '\n', '', '')
 
     if s:uname == "Darwin"
-        "Rnnning under mac
+        "rnnning under mac
         " set correct YCM  path under mac
         let g:ycm_server_python_interpreter="/usr/local/bin/python3"
         if $TMUX == ''
@@ -245,22 +226,27 @@ endif
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
     set mouse=a
 endif
 
-"YCM config
-let g:ycm_global_ycm_extra_conf = '~/dotfiles/extra_config/ycm_extra_conf.py'
-let g:ycm_python_binary_path="python3"
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_always_populate_location_list = 1
-let g:ycm_log_level = "debug"
-
 syntax enable
+
 "do incremental searching
 set incsearch
+
+set backup
+set swapfile
+"save undo's after file closes
+set undofile
+"how many undo's to save
+set undolevels=1000
+"keep 50 lines of command line history
+set history=500
+"move swap and backup to VimBackup
+set undodir=~/.vim/backups//
+set backupdir=~/.vim/backups//
+set directory =~/.vim/backups//
 
 " }}}
 " auto commands {{{
@@ -289,6 +275,5 @@ nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 let g:slimv_swank_cmd = '! tmux new-window -d -n REPL-SBCL "sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"'
 
 " }}}
-
 
 " vim:foldmethod=marker
