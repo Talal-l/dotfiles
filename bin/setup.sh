@@ -4,7 +4,8 @@ ommandExist () { type "$1" &> /dev/null ;}
 sudo apt-get install -y vim cmake tmux curl \
     virt-manager bridge-utils \
     qemu-kvm build-essential \
-    python3 python3-dev
+    python3 python3-dev \
+    xclip
 
 
 sudo apt-get install -y chrome-gnome-shell
