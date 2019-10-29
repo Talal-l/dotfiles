@@ -147,3 +147,4 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     fi
 fi
 
+alias venv='source .venv/bin/activate'

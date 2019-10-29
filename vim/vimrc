@@ -11,7 +11,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
-Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dracula/vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -32,8 +31,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'farfanoide/vim-kivy'
-" markdown preview
 Plugin 'suan/vim-instant-markdown'
+Plugin 'Valloric/MatchTagAlways'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,8 +98,7 @@ map gc <Plug>NERDCommenterToggle
 " }}}
 " style and formating {{{
 
-"colorscheme solarized
-colorscheme sierra
+colorscheme apprentice
 
 if has('mac')
     "colorscheme PaperColor
@@ -109,13 +107,13 @@ else
 endif
 
 "number of visual spaces per TAB
-set tabstop=4
+set tabstop=2
 "number of space in tab when editing
-set softtabstop=4
+set softtabstop=2
 "tabs are spaces
 set expandtab
 "indent 4 spaces instead of eight
-set shiftwidth=4
+set shiftwidth=2
 
 set autoindent
 "set textwidth=79
@@ -156,6 +154,10 @@ let g:ycm_server_keep_logfiles = 1
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_log_level = "debug"
+let g:ycm_auto_trigger = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_semantic_triggers = {'cpp': ['re!\w{2}']}
+
 
 " utilsnips config
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
