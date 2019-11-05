@@ -35,7 +35,7 @@ mkdir -p ~/.vim/backups
 vim +PluginInstall +qall
 
 # Compile YCM with python3
-python3 ~/.vim/bundle/YouCompleteMe/install.py --clang-completer --all
+python3 install.py --ts-completer --cs-completer --clang-completer --go-completer --rust-completer 
 
 
 
@@ -73,16 +73,6 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
 
     # Remap CAP to Ctrl
     gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
-
-
-    # Remap gnome terminal shortcuts
-    GSETTINGS_SCHEMA=org.gnome.Terminal.Legacy.Keybindings
-    GSETTINGS_PATH=/org/gnome/terminal/legacy/keybindings/
-    SCHEMA_PATH=$GSETTINGS_SCHEMA:$GSETTINGS_PATH
-
-    gsettings set $SCHEMA_PATH next-tab '<Control>l'
-    gsettings set $SCHEMA_PATH prev-tab '<Control>h'
-    gsettings set $SCHEMA_PATH new-tab '<Control>t'
 
     # To list all available keybindings
     # gsettings list-recursively | grep Terminal.Legacy.Keybindings
