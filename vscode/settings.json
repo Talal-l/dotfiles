@@ -16,7 +16,7 @@
     "editor.tabCompletion": "on",
     // vim config
     "vim.useSystemClipboard": true,
-    "vim.leader": " ",
+    "vim.leader": "",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
@@ -37,12 +37,6 @@
     "window.zoomLevel": 0,
 
     "editor.detectIndentation": false,
-    "json.schemas": [
-        {
-            "fileMatch": ["cypress.json"],
-            "url": "https://on.cypress.io/cypress.schema.json"
-        }
-    ],
     "javascript.updateImportsOnFileMove.enabled": "always",
     "explorer.confirmDragAndDrop": false,
     "editor.renderWhitespace": "none",
