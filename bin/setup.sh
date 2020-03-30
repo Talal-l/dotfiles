@@ -1,27 +1,38 @@
 #!/bin/bash
-ommandExist () { type "$1" &> /dev/null ;}
+commandExist () { 
+    if ! type "$1" > /dev/null; then
+        msg "$1 is not installed"
+        exit 127
+    fi
+}
 
-sudo apt-get install -y vim-gtk cmake tmux curl \
-    virt-manager bridge-utils \
-    qemu-kvm build-essential \
-    python3 python3-dev \
-    xclip \
-    clang clang-format
+msg(){
+echo "######## $1 ########"
+}
 
+repo_path="$HOME/dotfiles"
 
-sudo apt-get install -y chrome-gnome-shell
+# Make sure clock is up to date (needed after restoring vm from snapshot)
+# remove unattended-upgrades to prevent it from hogging the lock
+sudo apt-get remove -y unattended-upgrades
+sudo systemctl restart systemd-timesyncd
+sudo sed -i 's/\/.*\.archive/\/\/archive/' /etc/apt/sources.list
 
-sudo apt-get install -y wireshark transmission
+sudo apt-get update
 
+msg "Installing pacakges"
+export DEBIAN_FRONTEND=noninteractive
+sudo apt-get install -y $(cat "$repo_path/extra_config/pkglist.txt")
 
 # Vim setup
 
 # Install vundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    commandExist git
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-echo "Creating vim symlink"
+msg "Creating vim symlink"
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim/colors ~/.vim/colors
 ln -sf ~/dotfiles/vim/ftplugin ~/.vim/ftplugin
@@ -35,14 +46,15 @@ mkdir -p ~/.vim/backups
 vim +PluginInstall +qall
 
 # Compile YCM with python3
-python3 install.py --ts-completer --cs-completer --clang-completer --go-completer --rust-completer 
+msg "Compiling YCM"
+if ! [ -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]; then 
+    python3 ~/.vim/bundle/YouCompleteMe/install.py --ts-completer --cs-completer --clang-completer --go-completer --rust-completer 
+fi
 
 
+msg "VScode setup"
 
-# VScode setup
-sudo snap install vscode --classic
-
-echo "Installing vscode extensions"
+sudo snap install code --classic
 cat ~/dotfiles/vscode/extensions.txt | xargs -L 1 /snap/bin/code --install-extension
 ln -sf ~/dotfiles/vscode/snippets ~/.config/Code/User/snippets
 ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
@@ -50,20 +62,17 @@ ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 
 
 
-# Bash
-ln -sf  ~/dotfiles/bashrc ~/.bashrc
-ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
 
-# Install Dracul theme
-git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
-./gnome-terminal-colors-dracula/install.sh -s Dracula --skip-dircolors
-rm -rf gnome-terminal-colors-dracula
 
-# Setup general symbolic links
+msg "Installing Dracul theme"
+$repo_path/bin/dracula.sh
+
+msg "Setting up general symbolic links"
 ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/extra_config/eslintrc  ~/.eslintrc
 ln -sf ~/dotfiles/extra_config/jsconfig.json ~/jsconfig.json
-
+ln -sf  ~/dotfiles/bashrc ~/.bashrc
+ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
 
 
 # Configure  gnome

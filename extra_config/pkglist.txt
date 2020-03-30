@@ -1,0 +1,17 @@
+python3
+python3-dev
+git
+cmake
+build-essential
+clang
+clang-format
+curl
+tmux 
+vim-gtk
+virt-manager
+bridge-utils
+qemu-kvm
+xclip
+chrome-gnome-shell
+transmission
+wireshark
