@@ -43,9 +43,7 @@ python3 install.py --ts-completer --cs-completer --clang-completer --go-complete
 sudo snap install vscode --classic
 
 echo "Installing vscode extensions"
-while read l; do
-    code -f --install-extension $l
-done < ~/dotfiles/vscode/extensions.txt
+cat ~/dotfiles/vscode/extensions.txt | xargs -L 1 /snap/bin/code --install-extension
 ln -sf ~/dotfiles/vscode/snippets ~/.config/Code/User/snippets
 ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
 ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json

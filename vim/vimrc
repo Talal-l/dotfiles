@@ -35,6 +35,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 "All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -52,6 +53,18 @@ filetype plugin indent on    " required
 " }}}
 
 
+" functions {{{
+
+"override the terminal title if vim messes up
+" https://github.com/MikeDacre/tmux-zsh-vim-titles/blob/master/plugin/unified-titles.vim
+function! SetTmuxTerminalTitle(titleString)
+  "let cmd2 = 'silent !setTitleEnd '. a:titleString
+  let cmd1 = 'silent !echo -ne "\033]0;' . a:titleString . '\007"'
+  execute cmd1
+
+  redraw!
+endfunction
+" }}}
 " writing aid {{{
 
 "spelling
@@ -76,6 +89,10 @@ nnoremap <F2> :!pandoc % -o %:r.pdf<CR><CR>
 inoremap jk <esc>
 "shortcut for nerdtree
 map <C-n> :NERDTreeToggle<CR>
+"escape qoutes in insert mode
+inoremap <C-e> <C-o>A 
+"move back 1 step (used to renter brackets)
+inoremap <C-k> <C-o>i 
 
 "set leader key
 let mapleader = "\<Space>"
@@ -103,7 +120,10 @@ map gc <Plug>NERDCommenterToggle
 " style and formating {{{
 
 set background=dark
-colorscheme apprentice
+let darkeScheme = "apprentice" 
+let lightScheme = "PaperColor"
+execute "colorscheme " . darkeScheme 
+
 
 if has('mac')
     "colorscheme PaperColor
@@ -112,9 +132,9 @@ else
 endif
 
 "number of visual spaces per TAB
-set tabstop=2
+set tabstop=4
 "number of space in tab when editing
-set softtabstop=2
+set softtabstop=4
 "tabs are spaces
 set expandtab
 "indent 4 spaces instead of eight
@@ -152,10 +172,10 @@ endfunc
 function! ToggleLight()
     if &background == "dark"
         set background=light
-        colorscheme PaperColor
+        execute "colorscheme " . g:lightScheme
     else
         set background=dark 
-        colorscheme apprentice
+        execute "colorscheme " . g:darkeScheme 
     endif
 
 endfunc
@@ -259,6 +279,11 @@ augroup vimrc
     autocmd bufwritepost .vimrc source $MYVIMRC
 
     autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+
+    "rename tmux window with the name of currently opened file
+    autocmd FocusGained * call SetTmuxTerminalTitle(expand("%:p"). " [vim]")   
+    autocmd BufEnter * call SetTmuxTerminalTitle(expand("%:p") . " [vim]")   
+
 
   
 augroup END

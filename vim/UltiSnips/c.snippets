@@ -1,0 +1,20 @@
+# while getchar()
+snippet whgetc
+while ((${1:c} = getchar()) != EOF ) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+# while getchar()
+snippet whgetcf
+while ((${1:c} = getc(${2:f})) != EOF ) {
+    ${0:${VISUAL}}
+}
+endsnippet
+
+
+# scanf int
+snippet scanfd
+scanf("%${1:d}",${2:&n});
+
+endsnippet
