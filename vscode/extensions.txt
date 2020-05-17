@@ -1,7 +1,6 @@
 alefragnani.Bookmarks
 christian-kohler.path-intellisense
 CoenraadS.bracket-pair-colorizer
-dbaeumer.jshint
 dbaeumer.vscode-eslint
 dracula-theme.theme-dracula
 eamodio.gitlens
