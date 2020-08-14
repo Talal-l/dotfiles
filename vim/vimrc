@@ -31,7 +31,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'farfanoide/vim-kivy'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'leafgarland/typescript-vim'
@@ -71,10 +70,6 @@ endfunction
 set spelllang=en_us
 map <F7> :setlocal spell!<CR>
 
-"instant markdown
-map <C-m> :InstantMarkdownPreview<CR>
-let g:instant_markdown_autostart = 0
-
 
 " }}}
 "general maps {{{
@@ -109,18 +104,28 @@ nnoremap <leader>E :ALEPreviousWrap<CR>
 nnoremap <leader>r :ALEPreviousWrap<CR>
 map <leader>f <Plug>(ale_fix)
 
+"extra scrol mapping
+map <C-j> <C-E>
+map <C-k> <C-Y>
+
+
 "YCM mappings
 map gd  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "nerd commenter mappings 
 map gc <Plug>NERDCommenterToggle
 
+"search and replace current word 
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+"remove search highlighting for current search
+nmap <C-h> :noh<CR>
 
 " }}}
 " style and formating {{{
 
 set background=dark
-let darkeScheme = "apprentice" 
+let darkeScheme = "jellybeans" 
 let lightScheme = "PaperColor"
 execute "colorscheme " . darkeScheme 
 
@@ -264,6 +269,10 @@ set history=500
 set undodir=~/.vim/backups//
 set backupdir=~/.vim/backups//
 set directory =~/.vim/backups//
+
+
+" workaround to fix background color when using vim in kitty terminal
+let &t_ut=''
 
 " }}}
 " auto commands {{{
