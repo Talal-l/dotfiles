@@ -16,7 +16,7 @@
     "editor.tabCompletion": "on",
     // vim config
     "vim.useSystemClipboard": true,
-    "vim.leader": "",
+    "vim.leader": " ",
     "vim.insertModeKeyBindings": [
         {
             "before": ["j", "k"],
@@ -116,7 +116,7 @@
     "editor.acceptSuggestionOnCommitCharacter": false,
     "gitlens.views.repositories.files.layout": "tree",
     "C_Cpp.updateChannel": "Insiders",
-    "cSpell.enabledLanguageIds": [
+    "cSpell.enableFiletypes": [
         "asciidoc",
         "c",
         "cpp",
@@ -156,5 +156,19 @@
         "isec",
         "sigam",
         "startdrag"
-    ]
+    ],
+    "terminal.integrated.shell.linux": "/usr/bin/tmux",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64/",
+    "java.semanticHighlighting.enabled": true,
+    "python.jediEnabled": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "git.confirmSync": false,
+    "appService.showSavePrompt": false,
 }

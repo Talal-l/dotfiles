@@ -23,5 +23,9 @@
     {
         "key": "ctrl+f10",
         "command": "editor.debug.action.runToCursor"
+    },
+    {
+        "key": "alt+z",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 ]
