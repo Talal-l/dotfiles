@@ -145,10 +145,20 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 alias venv='source .venv/bin/activate'
+alias vi='nvim --noplugin'
+alias vim='nvim'
 
 # set terminal title on start
 PS1="\[\e]0;\w\a\]$PS1"
 
 # update terminal title to reflect running program. Used for arbtt
 trap 'echo -ne "\033]0;$(pwd) [$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")]\007"' DEBUG
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+source <(kitty + complete setup bash)
 
