@@ -26,30 +26,24 @@ sudo apt-get install -y $(cat "$repo_path/extra_config/pkglist.txt")
 
 # Vim setup
 
-# Install vundle
-if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
-    commandExist git
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+msg "vim setup"
+# Install vim-plug
+vimPlugFile="${XDG_DATA_HOME:-$HOME/.local/share/nvim/site/autoload/plug.vim}"
+if [ ! -f vimPlugFile ]; then
+    commandExist curl
+    # TODO: How to make this safer?
+    sh -c 'curl -fLo ${vimPlugFile} --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
 
-msg "Creating vim symlink"
-ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
-ln -sf ~/dotfiles/vim/colors ~/.vim/colors
-ln -sf ~/dotfiles/vim/ftplugin ~/.vim/ftplugin
-ln -sf ~/dotfiles/vim/UltiSnips ~/.vim/UltiSnips
+ln -sf ~/dotfiles/nvim/ ~/.config/nvim
 
 # Create backup directory for vim
 mkdir -p ~/.vim/backups
 
+# Install vim plugins using plug 
+vim +PlugInstall +qall
 
-# Install vim plugins using Vundle
-vim +PluginInstall +qall
-
-# Compile YCM with python3
-msg "Compiling YCM"
-if ! [ -e ~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so ]; then 
-    python3 ~/.vim/bundle/YouCompleteMe/install.py --ts-completer --cs-completer --clang-completer --go-completer --rust-completer 
-fi
 
 
 msg "VScode setup"
@@ -60,15 +54,8 @@ ln -sf ~/dotfiles/vscode/snippets ~/.config/Code/User/snippets
 ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
 ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 
-
-
-
-
-msg "Installing Dracul theme"
-$repo_path/bin/dracula.sh
-
 msg "Setting up general symbolic links"
-ln -sf  ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf  ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/extra_config/eslintrc  ~/.eslintrc
 ln -sf ~/dotfiles/extra_config/jsconfig.json ~/jsconfig.json
 ln -sf  ~/dotfiles/bashrc ~/.bashrc
@@ -77,10 +64,6 @@ ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
 
 # Configure  gnome
 if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
-
-    # Remap CAP to Ctrl
-    gsettings set org.gnome.desktop.input-sources xkb-options "['caps:ctrl_modifier']"
-
     # To list all available keybindings
     # gsettings list-recursively | grep Terminal.Legacy.Keybindings
 

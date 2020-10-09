@@ -1,6 +1,3 @@
-let b:ale_fixers = ["clang-format"]
-let b:ale_c_clangformat_options = "-sort-includes=false"
-
 "number of visual spaces per TAB
 set tabstop=2
 "number of space in tab when editing

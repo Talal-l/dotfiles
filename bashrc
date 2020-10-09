@@ -147,6 +147,7 @@ fi
 alias venv='source .venv/bin/activate'
 alias vi='nvim --noplugin'
 alias vim='nvim'
+alias vimdiff='nvim -d'
 
 # set terminal title on start
 PS1="\[\e]0;\w\a\]$PS1"
@@ -161,4 +162,9 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 source <(kitty + complete setup bash)
+
+# remaps
+
+# remap CAP to Ctrl
+setxkbmap -layout us -option ctrl:nocaps
 
