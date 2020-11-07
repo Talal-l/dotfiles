@@ -77,11 +77,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias ls='ls -G'
 
 # useful aliases
 alias f='find . -iname'
@@ -145,9 +140,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 alias venv='source .venv/bin/activate'
-alias vi='nvim --noplugin'
-alias vim='nvim'
+alias vi='nvim --noplugin -u NONE'
+#alias vim='nvim'
 alias vimdiff='nvim -d'
+alias fd=fdfind
 
 # set terminal title on start
 PS1="\[\e]0;\w\a\]$PS1"
@@ -167,4 +163,14 @@ source <(kitty + complete setup bash)
 
 # remap CAP to Ctrl
 setxkbmap -layout us -option ctrl:nocaps
+
+
+# Fzf config
+
+
+# apt didn't trigger the bash setup for fzf
+source ~/dotfiles/extra_config/completion.bash
+source ~/dotfiles/extra_config/key-bindings.bash
+
+export FZF_DEFAULT_COMMAND='fdfind'
 

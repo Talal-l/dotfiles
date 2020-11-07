@@ -13,3 +13,6 @@ qemu-kvm
 xclip
 chrome-gnome-shell
 transmission
+silversearcher-ag
+fzf
+fd-find

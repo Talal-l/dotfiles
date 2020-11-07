@@ -9,7 +9,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
-Plug 'kovisoft/slimv'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
@@ -17,9 +16,15 @@ Plug 'turbio/bracey.vim'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'clktmr/vim-gdscript3'
+Plug 'vlime/vlime', {'rtp': 'vim/'}
+Plug 'kovisoft/paredit'
+
+
 
 call plug#end()
 " }}}
@@ -64,6 +69,7 @@ inoremap <C-k> <C-o>i
 
 "set leader key
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 nnoremap <SPACE> <Nop>
 
 "utilSnips mapping
@@ -72,10 +78,10 @@ let g:UltiSnipsExpandTrigger="<C-f>"
 nnoremap <leader>v :tabedit $MYVIMRC<CR>
 
 "ale mappings
-nnoremap <leader>e :ALENextWrap<CR>
-nnoremap <leader>E :ALEPreviousWrap<CR>
-nnoremap <leader>r :ALEPreviousWrap<CR>
-map <leader>f <Plug>(ale_fix)
+"nnoremap <leader>e :ALENextWrap<CR>
+"nnoremap <leader>E :ALEPreviousWrap<CR>
+"nnoremap <leader>r :ALEPreviousWrap<CR>
+"map <leader>f <Plug>(ale_fix)
 
 "extra scrol mapping
 map <C-j> <C-E>
@@ -94,7 +100,7 @@ nmap <C-h> :noh<CR>
 " style and formating {{{
 
 set background=dark
-let darkeScheme = "jellybeans" 
+let darkeScheme = "alduin" 
 let lightScheme = "PaperColor"
 execute "colorscheme " . darkeScheme 
 
@@ -105,6 +111,10 @@ if has('mac')
 else
 endif
 
+"show whitechar
+set lcs=tab:>-,eol:¬,nbsp:%,space:.,tab:▸\
+
+set list
 "number of visual spaces per TAB
 set tabstop=4
 "number of space in tab when editing
@@ -297,29 +307,14 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 " utilsnips config
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
-" ctrlp config 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|^.git$\'
+" Fzf config 
+
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-l> :BLines<CR>
+
 
 
 
@@ -383,6 +378,7 @@ set undodir=~/.vim/backups//
 set backupdir=~/.vim/backups//
 set directory =~/.vim/backups//
 
+let g:netrw_dirhistmax=0
 
 " workaround to fix background color when using vim in kitty terminal
 let &t_ut=''

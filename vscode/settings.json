@@ -6,23 +6,12 @@
         "*.py": "python",
         "*.js": "javascript"
     },
-    // setting sync
-    "sync.gist": "e73efa19d0bbd816156fb0d9ef608fd2",
-    "sync.autoDownload": true,
-    "sync.autoUpload": true,
-    "sync.quietSync": true,
     "workbench.colorTheme": "Dracula",
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
     "editor.tabCompletion": "on",
     // vim config
     "vim.useSystemClipboard": true,
     "vim.leader": " ",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "k"],
-            "after": ["<Esc>"]
-        }
-    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["<leader>", "f"],
@@ -34,7 +23,7 @@
         }
     ],
     "workbench.activityBar.visible": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
 
     "editor.detectIndentation": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -59,110 +48,13 @@
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "peacock.favoriteColors": [
-        {
-            "name": "Angular Red",
-            "value": "#b52e31"
-        },
-        {
-            "name": "Auth0 Orange",
-            "value": "#eb5424"
-        },
-        {
-            "name": "Azure Blue",
-            "value": "#007fff"
-        },
-        {
-            "name": "C# Purple",
-            "value": "#68217A"
-        },
-        {
-            "name": "Gatsby Purple",
-            "value": "#639"
-        },
-        {
-            "name": "Go Cyan",
-            "value": "#5dc9e2"
-        },
-        {
-            "name": "Java Blue-Gray",
-            "value": "#557c9b"
-        },
-        {
-            "name": "JavaScript Yellow",
-            "value": "#f9e64f"
-        },
-        {
-            "name": "Mandalorian Blue",
-            "value": "#1857a4"
-        },
-        {
-            "name": "Node Green",
-            "value": "#215732"
-        },
-        {
-            "name": "React Blue",
-            "value": "#00b3e6"
-        },
-        {
-            "name": "Something Different",
-            "value": "#832561"
-        },
-        {
-            "name": "Vue Green",
-            "value": "#42b883"
-        }
-    ],
     "editor.acceptSuggestionOnCommitCharacter": false,
     "gitlens.views.repositories.files.layout": "tree",
     "C_Cpp.updateChannel": "Insiders",
-    "cSpell.enableFiletypes": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "git-commit",
-        "go",
-        "handlebars",
-        "haskell",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "less",
-        "markdown",
-        "php",
-        "plaintext",
-        "pug",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-        "yml"
-    ],
+    
     "editor.minimap.enabled": false,
-    "cSpell.userWords": [
-        "almuaili",
-        "ebraheem",
-        "isec",
-        "sigam",
-        "startdrag"
-    ],
-    "terminal.integrated.shell.linux": "/usr/bin/tmux",
+    "terminal.integrated.shell.linux": "/bin/bash",
     "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "java.home": "/usr/lib/jvm/java-11-openjdk-amd64/",
-    "java.semanticHighlighting.enabled": true,
-    "python.jediEnabled": false,
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
@@ -170,5 +62,5 @@
         "**/.factorypath": true
     },
     "git.confirmSync": false,
-    "appService.showSavePrompt": false,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
 }
