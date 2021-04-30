@@ -32,8 +32,8 @@ vimPlugFile="${XDG_DATA_HOME:-$HOME/.local/share/nvim/site/autoload/plug.vim}"
 if [ ! -f vimPlugFile ]; then
     commandExist curl
     # TODO: How to make this safer?
-    sh -c 'curl -fLo ${vimPlugFile} --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 ln -sf ~/dotfiles/nvim/ ~/.config/nvim
@@ -42,7 +42,7 @@ ln -sf ~/dotfiles/nvim/ ~/.config/nvim
 mkdir -p ~/.vim/backups
 
 # Install vim plugins using plug 
-vim +PlugInstall +qall
+nvim -es -i NONE -c "PlugInstall" -c "qa"
 
 
 

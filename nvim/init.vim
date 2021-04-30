@@ -16,19 +16,21 @@ Plug 'turbio/bracey.vim'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'kien/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'clktmr/vim-gdscript3'
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 Plug 'kovisoft/paredit'
+Plug 'kamykn/CCSpellCheck.vim'
+Plug 'yuttie/comfortable-motion.vim'
+Plug 'skanehira/vsession'
+Plug 'gcmt/taboo.vim'
 
-
-
+"
 call plug#end()
 " }}}
-
 
 " functions {{{
 
@@ -75,19 +77,26 @@ nnoremap <SPACE> <Nop>
 "utilSnips mapping
 let g:UltiSnipsExpandTrigger="<C-f>"
 
+" vim config shortcuts
 nnoremap <leader>v :tabedit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"ale mappings
-"nnoremap <leader>e :ALENextWrap<CR>
-"nnoremap <leader>E :ALEPreviousWrap<CR>
-"nnoremap <leader>r :ALEPreviousWrap<CR>
-"map <leader>f <Plug>(ale_fix)
 
-"extra scrol mapping
-map <C-j> <C-E>
-map <C-k> <C-Y>
+" Fix broken highlish syntax
+noremap <F9> <Esc>:syntax sync fromstart<CR>
+inoremap <F9> <C-o>:syntax sync fromstart<CR>
+
+" vim-fugitive'
+nnoremap <leader>g :vertical leftabove 30G<CR>
+
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" switch between current and last buffer
+nmap <leader><SPACE> <c-^>
 
 "nerd commenter mappings 
+
+let g:NERDCreateDefaultMappings = 0
 map gc <Plug>NERDCommenterToggle
 
 "search and replace current word 
@@ -100,8 +109,8 @@ nmap <C-h> :noh<CR>
 " style and formating {{{
 
 set background=dark
-let darkeScheme = "alduin" 
-let lightScheme = "PaperColor"
+let darkeScheme = "iceberg" 
+let lightScheme = "iceberg"
 execute "colorscheme " . darkeScheme 
 
 
@@ -121,8 +130,8 @@ set tabstop=4
 set softtabstop=4
 "tabs are spaces
 set expandtab
-"indent 4 spaces instead of eight
-set shiftwidth=4
+"indent 2 spaces instead of eight
+set shiftwidth=2
 
 set autoindent
 "set textwidth=79
@@ -170,6 +179,24 @@ endfunc
 " plugins config {{{
 
 "COC config
+
+let g:CCSpellCheckMatchGroupName = 'CCSpellBad'
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
+" Override highlight setting.
+highlight CCSpellBad cterm=reverse ctermfg=magenta gui=reverse guifg=magenta
+
+
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format)
+nmap <leader>f  <Plug>(coc-format)
+
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -255,9 +282,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -312,10 +336,32 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " Fzf config 
 
-nnoremap <silent> <C-p> :Files<CR>
+if isdirectory(".git")
+    nmap <silent> <C-p> :GFiles<CR>
+else
+    nmap <silent> <C-p> :Files<CR>
+endif
+
 nnoremap <silent> <C-l> :BLines<CR>
+nnoremap <silent> <c-space> :Buffers<CR>
 
 
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
+
+set sessionoptions+=tabpages,globals
+
+" coc-fzf
+nnoremap <silent> <leader>cl       :<C-u>CocFzfList<CR>
+nnoremap <silent> <leader>cD       :<C-u>CocFzfList diagnostics<CR>
+nnoremap <silent> <leader>cd       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <leader>cc       :<C-u>CocFzfList commands<CR>
+nnoremap <silent> <leader>ce       :<C-u>CocFzfList extensions<CR>
+nnoremap <silent> <leader>cL       :<C-u>CocFzfList location<CR>
+nnoremap <silent> <leader>co       :<C-u>CocFzfList outline<CR>
+nnoremap <silent> <leader>cs       :<C-u>CocFzfList symbols<CR>
+nnoremap <silent> <leader>cp       :<C-u>CocFzfListResume<CR>
 
 
 " }}}
@@ -383,6 +429,25 @@ let g:netrw_dirhistmax=0
 " workaround to fix background color when using vim in kitty terminal
 let &t_ut=''
 
+" better default split locations
+set splitbelow
+set splitright
+
+" TODO: make this work with all quit options like qw 
+" declare function for moving left when closing a tab.
+function! TabCloseLeft(cmd)
+    if winnr('$') == 1 && tabpagenr('$') > 1 && tabpagenr() > 1 && tabpagenr() < tabpagenr('$')
+        exec a:cmd | tabprevious
+    else
+        exec a:cmd
+    endif
+endfunction
+
+
+
+
+
+
 " }}}
 " auto commands {{{
 
@@ -391,7 +456,6 @@ augroup vimrc
     "Disable automatic comment insertion
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     "Set spell and hard wrapping for md files
-    autocmd FileType markdown setlocal spell tw=80
 
     "source the vimrc file after saving it
     autocmd bufwritepost .vimrc source $MYVIMRC
@@ -402,10 +466,71 @@ augroup vimrc
     autocmd FocusGained * call SetTmuxTerminalTitle(expand("%:p"). " [vim]")   
     autocmd BufEnter * call SetTmuxTerminalTitle(expand("%:p") . " [vim]")   
 
+    au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+    au FileType fzf tunmap <buffer> <Esc>
 
   
 augroup END
 
 " }}}
+
+" auto commands {{{
+" terminal emulator
+"""""""""""""""
+  nnoremap <leader>t :belowright 10split term://bash <CR>
+  nnoremap <leader>T :belowright vsplit term://bash <CR>
+  nnoremap <C-j> :echo "test"<CR>
+  tmap <C-j> :echo "test"<CR>
+
+
+  "tnoremap <C-j> <C-w>j
+  "tnoremap <C-k> <C-w>k
+  "tnoremap <C-h> <C-w>h
+  "tnoremap <C-l> <C-w>l
+  tnoremap <C-J> <C-W><C-J>
+  tnoremap <C-K> <C-W><C-K>
+  tnoremap <C-L> <C-W><C-L>
+  tnoremap <C-H> <C-W><C-H>
+
+
+" }}}
+
+" functions {{{
+" used to open files in vim when using vim terminal
+function! Tapi_vit(bufnum, arglist)
+   let currfile = get(a:arglist, 0, '')
+   let $VIM_TERMINAL = "yes"
+   if empty(currfile)
+     return
+   endif
+   execute 'e' currfile
+endfunction
+
+
+
+" from https://github.com/junegunn/fzf.vim/pull/733#issuecomment-559720813
+" delet buffers using fzf
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]} ))
+endfunction
+
+
+
+command! Bd call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+
+
+"}}}
 
 " vim:foldmethod=marker

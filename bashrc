@@ -157,7 +157,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-source <(kitty + complete setup bash)
+#source <(kitty + complete setup bash)
 
 # remaps
 
@@ -173,4 +173,23 @@ source ~/dotfiles/extra_config/completion.bash
 source ~/dotfiles/extra_config/key-bindings.bash
 
 export FZF_DEFAULT_COMMAND='fdfind'
+
+# from https://vi.stackexchange.com/a/26358
+vit()
+{
+  if [[ ! -z "$VIM_TERMINAL" ]]; then
+    if [ $# -eq 0 ]; then
+      echo "You are already inside Vim. Provide filenames as arguments"
+    else
+      readlink -f $@ | xargs printf '\033]51;["call", "Tapi_vit", ["%s"]]\007'
+    fi
+  else
+    vim $@
+  fi
+}
+
+alias vim=vit
+
+
+
 

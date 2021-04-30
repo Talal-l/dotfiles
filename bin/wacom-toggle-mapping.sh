@@ -3,7 +3,7 @@
 pad1="$(xsetwacom --list | grep PAD | awk 'FNR==1{print $0}' | sed 's/[^0-9]//g')"
 pad2="$(xsetwacom --list | grep PAD | awk 'FNR==2{print $0}' | sed 's/[^0-9]//g')"
 
-mapping="/home/eris/dotfiles/bin/wacom-button-map.sh"
+mapping="$HOME/dotfiles/bin/wacom-button-map.sh"
 
 setIndicator="key +Shift_L +Control_L +t"  # if this is there then the mapping is active
 

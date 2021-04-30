@@ -6,7 +6,7 @@
         "*.py": "python",
         "*.js": "javascript"
     },
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "Plain (Dark Colored)",
     // Controls if pressing tab inserts the best suggestion and if tab cycles through other suggestions
     "editor.tabCompletion": "on",
     // vim config
@@ -17,13 +17,21 @@
             "before": ["<leader>", "f"],
             "commands": ["editor.action.formatDocument"]
         },
+        // prevent folds from being opened when moving
         {
-            "before": [],
-            "commands": []
+            "before": ["j"],
+            "commands": ["cursorDown"]
+        },
+        {
+            "before": ["k"],
+            "commands": ["cursorUp"]
+        },
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["editor.emmet.action.matchTag"]
         }
     ],
     "workbench.activityBar.visible": true,
-    "window.zoomLevel": 0,
 
     "editor.detectIndentation": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
@@ -34,24 +42,13 @@
     "git.autofetch": true,
     "git.autoStash": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.tabWidth": 4,
-    "prettier.jsxBracketSameLine": true,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[css]": {
+    "[javascript,json,html,css,php]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.acceptSuggestionOnCommitCharacter": false,
     "gitlens.views.repositories.files.layout": "tree",
     "C_Cpp.updateChannel": "Insiders",
-    
+
     "editor.minimap.enabled": false,
     "terminal.integrated.shell.linux": "/bin/bash",
     "editor.suggestSelection": "first",
@@ -63,4 +60,28 @@
     },
     "git.confirmSync": false,
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "extempore.sharedir": "/home/xanthr/code/lisp/extempore",
+    "files.autoSave": "off",
+    // "[vue]": {
+    //     "editor.defaultFormatter": "octref.vetur"
+    // },
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "git.enableSmartCommit": true,
+    "chronicler.ffmpeg-binary": "/usr/bin/ffmpeg",
+    "remote.SSH.remotePlatform": {
+        "192.168.35.61": "linux"
+    },
+    "cSpell.enabled": true,
+    "cSpell.allowedSchemas": ["file", "untitled", "sftp", "ftp"],
+    "files.maxMemoryForLargeFilesMB": 40960,
+    "vetur.completion.autoImport": false,
+    "json.maxItemsComputed": 500000,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "html.autoClosingTags": false,
+    "editor.linkedEditing": true,
+    "window.zoomLevel": -1
 }
