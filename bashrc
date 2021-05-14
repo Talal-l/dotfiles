@@ -193,3 +193,4 @@ alias vim=vit
 
 
 
+[ -f "/home/xanthr/.ghcup/env" ] && source "/home/xanthr/.ghcup/env" # ghcup-env
