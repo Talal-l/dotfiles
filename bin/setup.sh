@@ -32,11 +32,11 @@ vimPlugFile="${XDG_DATA_HOME:-$HOME/.local/share/nvim/site/autoload/plug.vim}"
 if [ ! -f vimPlugFile ]; then
     commandExist curl
     # TODO: How to make this safer?
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    curl -fLo $vimPlugFile --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-ln -sf ~/dotfiles/nvim/ ~/.config/nvim
+ln -sf ~/dotfiles/nvim ~/.config/nvim
 
 # Create backup directory for vim
 mkdir -p ~/.vim/backups
@@ -45,21 +45,13 @@ mkdir -p ~/.vim/backups
 nvim -es -i NONE -c "PlugInstall" -c "qa"
 
 
-
-msg "VScode setup"
-
-sudo snap install code --classic
-cat ~/dotfiles/vscode/extensions.txt | xargs -L 1 /snap/bin/code --install-extension
-ln -sf ~/dotfiles/vscode/snippets ~/.config/Code/User/snippets
-ln -sf ~/dotfiles/vscode/keybindings.json ~/.config/Code/User/keybindings.json
-ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-
 msg "Setting up general symbolic links"
 ln -sf  ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/extra_config/eslintrc  ~/.eslintrc
 ln -sf ~/dotfiles/extra_config/jsconfig.json ~/jsconfig.json
 ln -sf  ~/dotfiles/bashrc ~/.bashrc
 ln -sf  ~/dotfiles/bash_profile ~/.bash_profile
+ln -sf  ~/dotfiles/ideavimrc ~/.ideavimrc
 
 
 # Configure  gnome
@@ -73,4 +65,5 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
 
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Alt>k']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Alt>j']"
+    gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 fi

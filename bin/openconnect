@@ -1,0 +1,23 @@
+#!/usr/bin/expect -f
+
+proc slurp {file} {
+    set fh [open $file r]
+    set ret [read $fh]
+    close $fh
+    return $ret
+}
+set user "ammar.t" 
+set pass [slurp "$env(HOME)/.openconnect.pass"]
+set code [lindex $argv 0]
+
+set timeout -1
+spawn sudo openconnect https://168.187.224.68/+webvpn+/index.html  --no-dtls --authgroup=IT_Application_Team -u "$user"  --servercert pin-sha256:yFzCeweCcSxkzOdrGSE8KWlz8SiGsN6BcRDQwdqY6i4=
+interact -o "Please" return
+expect "Password:"
+# Not sure why this doesn't require \r even thought it does require it if using a plain string
+send  "$pass"
+expect "Password:"
+#interact
+send  "$code\r"
+interact
+
