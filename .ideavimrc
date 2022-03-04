@@ -1,0 +1,15 @@
+let mapleader=" "
+
+nnoremap gc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <c-k> :action ShowIntentionActions<CR>
+
+nnoremap <Leader>f  :action ReformatCode<CR>
+set clipboard+=unnamed
+set clipboard+=ideaput
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>

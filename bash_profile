@@ -5,5 +5,5 @@ source ~/.bashrc
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
+. "$HOME/.cargo/env"

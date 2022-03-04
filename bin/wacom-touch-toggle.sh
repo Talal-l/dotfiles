@@ -3,6 +3,7 @@
 # Toggle touch on/off
 
 device="$(xsetwacom --list | grep TOUCH | sed -r "s/[^0-9]//g")" 
+echo $device
 
 
 

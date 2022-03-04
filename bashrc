@@ -194,3 +194,16 @@ alias vim=vit
 
 
 [ -f "/home/xanthr/.ghcup/env" ] && source "/home/xanthr/.ghcup/env" # ghcup-env
+. "$HOME/.cargo/env"
+
+alias server="python3 -m http.server"
+
+# added by pipx (https://github.com/pipxproject/pipx)
+export PATH="/home/t__t/.local/bin:$PATH"
+source /opt/git-subrepo/.rc
+
+
+export PATH=$PATH:/usr/local/go/bin
+
+
+

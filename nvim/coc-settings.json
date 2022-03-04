@@ -1,4 +1,5 @@
 {
+  "hover.target": "preview",
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -24,6 +25,17 @@
         "hie.yaml"
       ],
       "filetypes": ["haskell", "lhaskell", "hs"]
+    },
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test",
+        "elmAnalyseTrigger": "change"
+      }
     }
   }
 }

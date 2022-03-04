@@ -27,6 +27,9 @@ Plug 'kamykn/CCSpellCheck.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'skanehira/vsession'
 Plug 'gcmt/taboo.vim'
+Plug '~/.local/share/nvim/site/plugin/whitebox.vim'
+Plug '~/.local/share/nvim/site/plugin/scriptnames.vim'
+Plug 'rust-lang/rust.vim'
 
 "
 call plug#end()
@@ -338,6 +341,7 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 if isdirectory(".git")
     nmap <silent> <C-p> :GFiles<CR>
+    nmap <silent> <C-P> :Files<CR>
 else
     nmap <silent> <C-p> :Files<CR>
 endif
