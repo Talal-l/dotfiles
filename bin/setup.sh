@@ -65,6 +65,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
 
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Alt>k']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Alt>j']"
+    gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps']"
 fi
 
 
