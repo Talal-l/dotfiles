@@ -93,7 +93,7 @@ function mkdircd
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # fast way to copy to clipboard without mouse 
-alias clip='xsel -ib'
+alias clip='xclip -sel clip'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -141,7 +141,7 @@ fi
 
 alias venv='source .venv/bin/activate'
 alias vi='nvim --noplugin -u NONE'
-#alias vim='nvim'
+alias vim='nvim'
 alias vimdiff='nvim -d'
 alias fd=fdfind
 
@@ -200,10 +200,36 @@ alias server="python3 -m http.server"
 
 # added by pipx (https://github.com/pipxproject/pipx)
 export PATH="/home/t__t/.local/bin:$PATH"
+export PATH="/opt/lazygit/:$PATH"
 source /opt/git-subrepo/.rc
 
 
 export PATH=$PATH:/usr/local/go/bin
 
+export PATH=$PATH:~/.local/bin 
+PATH=$PATH:~/.local/bin
+
+export PATH=$PATH:/opt/blender
+export PATH=$PATH:/opt/whitebox
 
 
+
+# pnpm
+export PNPM_HOME="/home/t__t/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+eval "$(starship init bash)"
+
+# >>>> Vagrant command completion (start)
+. /opt/vagrant/embedded/gems/2.3.1/gems/vagrant-2.3.1/contrib/bash/completion.sh
+# <<<<  Vagrant command completion (end)
+
+export DENO_INSTALL="/home/t__t/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+export EDITOR=nvim
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

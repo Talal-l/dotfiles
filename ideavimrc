@@ -1,3 +1,6 @@
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
 let mapleader=" "
 
 nnoremap gc :action CommentByLineComment<CR>

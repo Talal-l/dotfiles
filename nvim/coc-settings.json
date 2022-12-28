@@ -36,6 +36,10 @@
         "elmTestPath": "elm-test",
         "elmAnalyseTrigger": "change"
       }
+    },
+    "ansible": {
+      "filetypes": ["yaml.ansible"]
+
     }
   }
 }

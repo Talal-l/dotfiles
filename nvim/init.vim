@@ -1,5 +1,12 @@
 " vim-plug{{{
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
 call plug#begin(stdpath('data'))
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -30,6 +37,12 @@ Plug 'gcmt/taboo.vim'
 Plug '~/.local/share/nvim/site/plugin/whitebox.vim'
 Plug '~/.local/share/nvim/site/plugin/scriptnames.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'yaegassy/coc-ansible', {'do': 'npm install'}
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-dadbod'
+Plug 'tpope/vim-dotenv'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 "
 call plug#end()
@@ -183,6 +196,9 @@ endfunc
 
 "COC config
 
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
 let g:CCSpellCheckMatchGroupName = 'CCSpellBad'
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)

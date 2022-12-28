@@ -66,3 +66,13 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Control><Alt>k']"
     gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Control><Alt>j']"
 fi
+
+
+# register service to switch keychron to function key by default
+sudo ln -sf ~/dotfiles/extra_config/keychron.service /etc/systemd/system/keychron.service
+sudo systemctl enable keychron
+
+
+
+
+
